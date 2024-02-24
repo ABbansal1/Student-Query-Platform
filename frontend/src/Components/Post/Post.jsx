@@ -3,7 +3,7 @@ import './Post.css'
 import {Avatar, Button, Dialog, Typography} from '@mui/material'
 import {useDispatch} from 'react-redux'
 import { addCommentOnPost } from '../../Action/Post'
-import { getFollowingPost } from '../../Action/User'
+import { getFollowingPost, getMyPosts } from '../../Action/User'
 import CommentCard from '../CommentCard/CommentCard'
 const Post = ({
      postId,
@@ -28,7 +28,7 @@ const Post = ({
       await dispatch(addCommentOnPost(postId,commentValue));
 
       if(isAccount){
-         console.log("hello");
+        dispatch(getMyPosts());
       }else{
          dispatch(getFollowingPost());
       }
@@ -50,21 +50,25 @@ const Post = ({
      
 
 
-      <div className="container">
-        <div className="profile-section">
-          <Avatar src={ownerImage} />
-        </div>
-        <div className="post-description-section">
-          <h2>{caption}</h2>
-          <div className="author-name">
-           <h3>{ownerName}</h3>
+
+<div className="container">
+        <div className="main-section">
+          <div className="profile-section">
+            <Avatar src={ownerImage} />
           </div>
-          <div className="post-description-section-button">
-            <button  onClick={() => setCommentToggle(!commentToggle)}>Give Solution</button>
+
+          <div className="post-description-section">
+            <h3>{caption}</h3>
+            <p>{ownerName}</p>
+          </div>
+
+          <div className="post-query-image-section">
+            <img src={postImage} alt="" onClick={handleImageClick} />
           </div>
         </div>
-        <div className="post-query-image-section">
-          <img src={postImage} alt="" onClick={handleImageClick} />
+
+        <div className="second-button-section">
+          <button onClick={() => setCommentToggle(!commentToggle)}>Give Solution</button>
         </div>
         {showFullScreen && (
           <div
@@ -76,7 +80,7 @@ const Post = ({
             </div>
           </div>
         )}
-        
+
       </div>
 
 

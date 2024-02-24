@@ -30,8 +30,7 @@ const Login = () => {
                     <button type='submit'>Login</button>
                 </form>
                 <div className="right-part">
-                  <h3>Register Now</h3>
-                  <p>When you Register, you agree to our User Agreement and acknowledge reading our User Privacy Notice.</p>
+                  <p>Don't Have any Account then Signup.</p>
                   <button>Create an Account</button>
                 </div>
             </div>

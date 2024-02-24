@@ -137,6 +137,25 @@ exports.getPostOfFollowing = async (req, res) => {
   }
 };
 
+exports.getAllQuery = async (req,res)=>{
+   try {
+      const querys = await Post.find({ 
+        name: {$regex: req.query.name, $options: "i"}
+      });
+      
+      res.status(200).json({
+         success:true,
+         querys,
+      })
+    
+   } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+   }
+}
+
 exports.updateCaption = async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);

@@ -4,18 +4,48 @@ import Post from '../Post/Post'
 import { useDispatch, useSelector } from 'react-redux'
 import { getMyPosts, logOutUser } from '../../Action/User'
 import { Avatar } from '@mui/material'
+import { useAlert } from 'react-alert'
 
 const Account = () => {
     const { user } = useSelector((state) => state.user);
+    const {loading,error, posts } = useSelector((state) => state.myPost);
+    const {
+        error: likeError,
+        message,
+        loading: deleteLoading,
+      } = useSelector((state) => state.like);
+
+
     const dispatch = useDispatch();
+    const alert = useAlert();
+
+
+
     const logOutHandler = () => {
         dispatch(logOutUser());
     }
 
-    const { posts } = useSelector((state) => state.myPost);
+    
     useEffect(() => {
         dispatch(getMyPosts());
     }, [dispatch])
+
+
+    useEffect(() => {
+        if (error) {
+          alert.error(error);
+          dispatch({ type: "clearErrors" });
+        }
+    
+        if (likeError) {
+          alert.error(likeError);
+          dispatch({ type: "clearErrors" });
+        }
+        if (message) {
+          alert.success(message);
+          dispatch({ type: "clearMessage" });
+        }
+      }, [alert, error, message, likeError, dispatch]);
 
 
     return (

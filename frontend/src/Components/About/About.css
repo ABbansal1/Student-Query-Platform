@@ -43,3 +43,24 @@
     letter-spacing: 1px;
     font-weight: 200;
 }
+
+@media screen and (max-width:400px){
+    .process{
+         display: flex;
+         flex-direction: column;
+         margin-left: 17%;
+    }
+    .create{
+        margin-top: 30px;
+    }
+    .create p{
+        margin-left: 16px;
+        font-size: 23px;
+        margin-top: 10px;
+        word-spacing: 2px;
+        letter-spacing: 1px;
+        font-weight: 200;
+
+
+    }
+}

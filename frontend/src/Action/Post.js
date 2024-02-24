@@ -79,3 +79,22 @@ export const addCommentOnPost = (id, comment) => async (dispatch) => {
       });
     }
   };
+
+  export const allQuery = (name="") => async (dispatch) => {
+    try {
+      dispatch({
+        type: "allQueryRequest",
+      });
+
+      const { data } = await axios.get(`/api/v1/querys?name=${name}`);
+      dispatch({
+        type: "allQuerySuccess",
+        payload: data.querys,
+      });
+    } catch (error) {
+      dispatch({
+        type: "allQueryFailure",
+        payload: error.response.data.message,
+      });
+    }
+  };

@@ -8,40 +8,50 @@ import Users from "../Users/Users"
 
 
 const Allusers = () => {
+  const [name, setName] = React.useState("");
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch();
-    const {loading,users} = useSelector(state=>(state.allUsers));
+  const { loading, users } = useSelector(state => (state.allUsers));
 
-    useEffect(() => {
-         dispatch(getAllUsers());
-    }, [dispatch])
-    
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(getAllUsers(name));
+  };
+
+
+  useEffect(() => {
+    dispatch(getAllUsers());
+  }, [dispatch])
+
   return (
-    
-      loading?<Loader/>:(
-        <>
-        <div className="search-box">
-        <input type='text' placeholder='Search for a User' />
-        </div>
-       
+
+    loading ? <Loader /> : (
+      <>
+
+        <form className='search-box' onSubmit={submitHandler}>
+          <input type='text'  value={name}  onChange={(e) => setName(e.target.value)} placeholder='Search for a User' />
+          <button type='submit'>Search</button>
+
+        </form>
+
         <div className="main-box">
-            
-            {
-               users ? users.map((user)=>(
-                  <Users
-                    userId={user._id}
-                    name={user.name}
-                    avator={user.avatar.url}
-                    followers={user.followers.length}
-                    followings={user.following.length}
-                    post={user.posts.length}
-                  />
-               )):
-               <h2>No Users Yet</h2>
-            }
+
+          {
+            users ? users.map((user) => (
+              <Users
+                userId={user._id}
+                name={user.name}
+                avator={user.avatar.url}
+                followers={user.followers.length}
+                followings={user.following.length}
+                post={user.posts.length}
+              />
+            )) :
+              <h2>No Users Yet</h2>
+          }
         </div>
-        </>
-      )
+      </>
+    )
   )
 }
 

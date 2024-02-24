@@ -44,13 +44,13 @@ export const loadUser =()=> async (dispatch)=>{
 
 
 
-export const getAllUsers = () => async (dispatch) => {
+export const getAllUsers = (name="") => async (dispatch) => {
     try {
       dispatch({
         type: "allUsersRequest",
       });
 
-      const { data } = await axios.get("/api/v1/users");
+      const { data } = await axios.get(`/api/v1/users?name=${name}`);
       dispatch({
         type: "allUsersSuccess",
         payload: data.users,

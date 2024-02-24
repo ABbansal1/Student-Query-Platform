@@ -187,3 +187,20 @@ export const userPostsReducer = createReducer(initialState, {
     state.error = null;
   },
 });
+
+export const allQuerysReducer = createReducer(initialState, {
+  allQueryRequest: (state) => {
+    state.loading = true;
+  },
+  allQuerySuccess: (state, action) => {
+    state.loading = false;
+    state.query = action.payload;
+  },
+  allQueryFailure: (state, action) => {
+    state.loading = false;
+    state.error = action.payload;
+  },
+  clearErrors: (state) => {
+    state.error = null;
+  },
+});
