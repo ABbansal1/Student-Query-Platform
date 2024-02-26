@@ -4,6 +4,7 @@
      justify-content: space-between;
      align-items: center;
      padding: 1.6rem 11rem;
+     /* overflow-x: hidden; */
  }
  .left img{
      width: 30%;
@@ -72,7 +73,7 @@
  @media(max-width: 62em){
      .right{
          width: 100%;
-         height: 20vh;
+         height: 25vh;
          background-color: white;
          justify-content: center;
          display: flex;

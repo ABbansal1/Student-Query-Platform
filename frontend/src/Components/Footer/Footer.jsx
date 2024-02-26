@@ -11,14 +11,14 @@ const Footer = () => {
     <>
 
       <footer>
-        <div class="footer-container">
-          <div class="footer-logo">
+        <div className="footer-container">
+          <div className="footer-logo">
             <h2>Student Query</h2>
             <p>SOLUTIONS OF ALL THE PROBLEMS.</p>
             
           </div>
-          <div class="footer-links">
-            <div class="platform">
+          <div className="footer-links">
+            <div className="platform">
               <h3>Platform</h3>
               <ul>
                 <a href="#"><li>How it Works</li></a>
@@ -26,7 +26,7 @@ const Footer = () => {
               
               </ul>
             </div>
-            <div class="learning">
+            <div className="learning">
               <h3>Learn</h3>
               <ul>
                 <a href="#"><li>Resources</li></a>
@@ -34,7 +34,7 @@ const Footer = () => {
                 <a href="#"><li>FAQs</li></a>
               </ul>
             </div>
-            <div class="About">
+            <div className="About">
               <h3>About</h3>
               <ul>
                 <a href="#"><li>Privacy Policy</li></a>
@@ -44,12 +44,12 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div class="footer-contactus">
+          <div className="footer-contactus">
             <h2>Contact US</h2>
             <button type='submit' onClick={handleClick}>Get in touch</button>
           </div>
         </div>
-        <div class="copywright-tag">@copyCopyright Student Query. All rights reserved</div>
+        <div className="copywright-tag">@copyCopyright Student Query. All rights reserved</div>
       </footer>
     </>
   )
