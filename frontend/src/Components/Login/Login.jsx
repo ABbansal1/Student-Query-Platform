@@ -31,9 +31,12 @@ const Login = () => {
                 </form>
                 <div className="right-part">
                   <p>Don't Have any Account then Signup.</p>
-                  <button>Create an Account</button>
+                  <button>
+                     <a href="/register">Create an Account</a>
+                  </button>
                 </div>
             </div>
+
     </>
   )
 }

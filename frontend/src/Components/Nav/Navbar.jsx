@@ -1,17 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Navbar.css'
 import logo from '../Nav/logo2.png'
+import hamburger from '../Nav/hamburger.png'
 const Header = () => {
-   
-    const fun = ()=>{
-      var mob_nav = document.querySelector(".navbar");
-      mob_nav.classList.toggle("active");
-  
-   }
+
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    
+
     <>
-        <nav class="navbar">
+      {/* <nav class="navbar">
         <div class="left">
             <img src={logo} alt="" />
         </div>
@@ -26,11 +29,29 @@ const Header = () => {
             </button>
             </ul>
         </div>
-        <div class="mobile" onClick={fun}>
-            <ion-icon name="menu" class="menu"></ion-icon>
-            <ion-icon name="close" class="menu"></ion-icon>
-        </div>
-    </nav>
+       
+    </nav> */}
+
+
+
+      <header>
+        <nav className='main-nav'>
+
+          <a href="/"> <img src={logo} alt="" /> </a>
+
+          <button onClick={toggleMenu}><img src={hamburger} alt="" /></button>
+
+
+          <ul className={isMenuOpen ? "toonMenu" : ""}>
+            <li><a className='nav-design' href="/">Home</a></li>
+            <li><a className='nav-design' href="/users">Users</a></li>
+            <li><a className='nav-design' href="/profile">Profile</a></li>
+            <li><a className='nav-design' href="/newquery">Create Query</a></li>
+          </ul>
+
+        </nav>
+      </header>
+
     </>
   )
 }

@@ -3,7 +3,7 @@ import './Post.css'
 import {Avatar, Button, Dialog, Typography} from '@mui/material'
 import {useDispatch} from 'react-redux'
 import { addCommentOnPost } from '../../Action/Post'
-import { getFollowingPost, getMyPosts } from '../../Action/User'
+import { getFollowingPost, getMyPosts, loadUser } from '../../Action/User'
 import CommentCard from '../CommentCard/CommentCard'
 const Post = ({
      postId,
@@ -28,6 +28,7 @@ const Post = ({
       await dispatch(addCommentOnPost(postId,commentValue));
 
       if(isAccount){
+        dispatch(loadUser());
         dispatch(getMyPosts());
       }else{
          dispatch(getFollowingPost());

@@ -39,6 +39,7 @@ const Allusers = () => {
           {
             users ? users.map((user) => (
               <Users
+                key={user._id}
                 userId={user._id}
                 name={user.name}
                 avator={user.avatar.url}

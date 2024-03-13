@@ -1,134 +1,99 @@
-.navbar{
-     background-color: white;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     padding: 1.6rem 11rem;
-     /* overflow-x: hidden; */
- }
- .left img{
-     width: 30%;
- }
- .list li a{
-     /* display: inline-block; */
-     text-decoration: none;
-     font-size: 1.3rem;
-     text-transform: capitalize;
-     color: black;
-     font-weight: 200;
-     transition: all 0.3s;
- }
- .list li{
-     list-style: none;
-     cursor: pointer;
- }
- .list{
-     display: flex;
-     justify-content: space-between;
-     gap: 3.5rem;
- 
- }
- .list li a:hover{
-     color: white;
-     background-color:black;
-     border-radius: 1rem;
-     padding: 0.6rem;
-     font-weight: 400;
-     font-size: 1.2rem;
- }
- .right{
-     display: flex;
-     /* align-items: center; */
- }
- .right button{
-      padding: 9px;
-      background-color: #cf2e2e;
- }
- .right button  a{
-       text-align: center;
-       color: white;
-       text-decoration: none;
- }
- .menu{
-     width: 3rem;
-     height: 3rem;
-     color: black;
- }
- .menu{
-     width: 3rem;
-     height: 3rem;
-     color: black;
- }
- .mobile{
-     display: none;
-     background: transparent;
-     cursor: pointer;
- }
- .menu[name="close"]{
-     display: none;
- }
- .navbar{
-     position: relative;
- }
- @media(max-width: 62em){
-     .right{
-         width: 100%;
-         height: 25vh;
-         background-color: white;
-         justify-content: center;
-         display: flex;
-         position: absolute;
-         top: 0;
-         left: 0;
-         transform: translateX(100%);
-         transition: all 1s linear;
-         align-items: center;
-         z-index: 999;
-     }
- 
-     .mobile{
-         display: block;
-         z-index: 999;
-     }
- 
-     .list{
-         align-items: center;
-         flex-direction: column;
-     }
-     .active .right{
-         transform: translateX(0%);
-     }
-     .active .menu[name="close"]{
-         display: block;
-     }
-     .active .menu[name="menu"]{
-         display: none;
-     }
-     .left{
-         display: block;
-         z-index: 999;
-     }
-     .left h1{
-         font-size: 2.4rem;
-     }
- }
- @media(max-width:94em){
-     .navbar{
-         padding: 1.6rem 7rem;
-     }
-     .list{
-         gap: 3rem;
-     }
- }
- @media(max-width:41em){
-     .navbar{
-         padding: 1.6rem 3rem;
-     }
- }
- @media(max-width:25em) {
-     .navbar {
-         padding: 1.6rem 1.4rem;
-     }
- }
- 
- 
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.main-nav{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    margin: 0;
+    padding: 1em 0;
+    width: 105%;
+    position: relative;
+    background-color: white;
+    z-index: 999;
+}
+
+@media  (min-width: 950px) {
+    nav {
+        grid-template-columns: 1fr 3fr;
+    }
+}
+
+nav a {
+    margin: auto;
+}
+
+nav a img:first-of-type {
+    width: 3.5em;
+}
+
+nav ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    list-style:none;
+    text-align: center;
+    background-color: white;
+    transition:transform .3s;
+    transform:translatex(-100%);
+}
+
+@media  (min-width: 950px) {
+    nav ul {
+        position: static;
+        display: flex;
+        justify-content: flex-end;
+        top: 0%;
+        background-color: transparent;
+        transform:translatex(0);
+    }
+}
+
+nav ul li {
+    padding: .5em;
+}
+
+.nav-design {
+    text-decoration: none;
+    color: black;
+    padding: 1em;
+}
+
+@media  (min-width: 950px) {
+    nav ul:first-of-type li:last-of-type {
+        margin-right: 4em;
+    }
+}
+
+nav ul li:hover {
+    transition: .3s ease-in-out;
+    transform: scale(1.05);
+}
+
+nav ul:first-of-type.toonMenu {
+    transform:translatex(0);
+}
+
+nav button {
+    border: none;
+    background: none;
+    display: flex;
+    position: relative;
+    left: 1.5em;
+    order:-1;
+}
+
+nav button img {
+   width: 2em;
+}
+
+@media  (min-width: 950px) {
+    nav button {
+        display: none;
+    }
+}

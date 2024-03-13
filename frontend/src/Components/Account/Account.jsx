@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import './Account.css'
 import Post from '../Post/Post'
 import { useDispatch, useSelector } from 'react-redux'
-import { getMyPosts, logOutUser } from '../../Action/User'
+import { getMyPosts, loadUser, logOutUser } from '../../Action/User'
 import { Avatar } from '@mui/material'
 import { useAlert } from 'react-alert'
 
@@ -27,6 +27,8 @@ const Account = () => {
 
     
     useEffect(() => {
+        dispatch(loadUser());
+
         dispatch(getMyPosts());
     }, [dispatch])
 

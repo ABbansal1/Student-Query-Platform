@@ -26,6 +26,9 @@ const UserProfile = () => {
 
     const paramas = useParams();
 
+   
+    
+
     const followHandler = async() => {
         setFollowing(!following);
       await  dispatch(followAndUnfollowUser(user._id));
@@ -36,8 +39,9 @@ const UserProfile = () => {
    
 
     useEffect(() => {
-        dispatch(getUserPosts(paramas.id));
         dispatch(getUserProfile(paramas.id));
+        dispatch(getUserPosts(paramas.id));
+
     }, [dispatch,  paramas.id])
 
     useEffect(() => {
